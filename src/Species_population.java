@@ -8,6 +8,5 @@ public class Species_population {
         sp1.write();
         int output=sp1.expect();
         System.out.println(output);
-        System.out.println("hello world");
     }
 }
