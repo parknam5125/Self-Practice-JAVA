@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Calculate_circle {
-    static final float PI = 3.14159;
+    static final float PI = 3.14159f;
     public static void main(String[] args) {
         Scanner key = new Scanner(System.in);
         float radius;
