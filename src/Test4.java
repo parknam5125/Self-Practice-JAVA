@@ -1,21 +1,26 @@
+import java.util.Scanner;
+
 public class Test4 {
-    public void bubble(int arr[]){
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i+1; j < arr.length ; j++) {
-                if (arr[i] > arr[j]) {
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-    }
     public static void main(String[] args) {
-        Test4 t = new Test4();
-        int arr = {3,6,8,2,5,4,7,1};
-        t.bubble(arr);
-        for(int i=0; i<arr.length; i++){
-            System.out.print(arr[i] + " ");
+        int[] frequency = new int[10];//new int[10]
+        for(int i=0;i<frequency.length;i++){//length
+            frequency[i]=0;
         }
+        Scanner kb = new Scanner(System.in);//System.in
+        System.out.print("Enter the number of students: ");
+        String p = kb.nextLine();//nextLine()
+
+        for(int i = 0; i<p.length(); i++){//length()
+            char ch = p.charAt(i);//charAt
+            if(!Character.isDigit(ch)){//isDigit
+               continue; 
+            }
+            int index = Character.getNumericValue(ch);//getNumericValue
+                frequency[index]++;
+        }
+        for(int i =0;i<frequency.length;i++){//length
+            System.out.println("frequency[" + i + "] = "+frequency[i]);
+        }
+        kb.close();
     }
 }

@@ -1,31 +1,34 @@
-import java.util.Scanner;
 public class Test3 {
-    public static String reading(int n) {
-        String digit[] = {"영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"};
-        String unit[] = {"만", "천", "백", "십", "일"};
-        String s = "";
-        if (!((0 < n )&&( n < 100000))) return s;
-    
-        
-        int div = 10000, d = 0, u = 0;
-        
-        while (n > 0) {
-            d = n / div;
-            n %= div;
-            if (d != 0) s += digit[d] + unit[u];
-            div /= 10;
-            u++;
-        }
-        return s;
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a number (1-99999): ");
-        int n = sc.nextInt();
-        String result = reading(n);
-        System.out.println(result);
-        sc.close();
-    }
-    
-}
+    public enum State{
+        Colorado("CO"),
+        Hawaii("HI"),
+        Minnesota("MN"),
+        Oregon("OR"),
+        Washington("WA");
 
+        String acronym;
+        State(String acronym){
+            this.acronym=acronym;
+        }
+        public String getAcronym(){
+            return acronym;
+        }
+    }
+        public static void main(String[] args) {
+            State state = State.Minnesota;
+            System.out.println(state.ordinal());
+            //OUTPUT: 2 -> 선언순서 반환
+            System.out.println(state.equals(State.Colorado));
+            //OUTPUT: false -> Colorado랑 다름
+            System.out.println(state.compareTo(State.Colorado));
+            //OUTPUT: 2 -> MN(2)-CO(0)
+            System.out.println(state.valueOf("Colorado"));
+            //OUTPUT: 0 -> Colorado의 선언순서
+            System.out.println(state.valueOf(state.toString()));
+            //OUTPUT: 2 -> Minnesota의 선언순서
+            System.out.println(state.getAcronym());
+            //OUTPUT: MN -> MN is Constructor
+            System.out.println(state.toString());
+            //OUTPUT: Minnesota
+        }
+}
